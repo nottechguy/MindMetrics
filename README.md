@@ -1,6 +1,6 @@
 
 # Propuesta de Software para Psicólogos
-Como ingeniero de software, entiendo la importancia de crear soluciones personalizadas que se adapten a las necesidades específicas de cada profesión. En el campo de la psicología, donde la atención al cliente y la gestión de información son cruciales, un software a medida puede marcar una gran diferencia.
+Mi nombre es Luis Antonio Mendoza Hernández, como ingeniero de software, entiendo la importancia de crear soluciones personalizadas que se adapten a las necesidades específicas de cada profesión. En el campo de la psicología, donde la atención al cliente y la gestión de información son cruciales, un software a medida puede marcar una gran diferencia.
 
 ## Introducción:
 La práctica de la psicología implica no solo la atención directa a los pacientes, sino también la gestión de una gran cantidad de información sensible y la necesidad de mantener un seguimiento detallado del progreso de cada individuo. Un software diseñado específicamente para psicólogos puede optimizar estos procesos, permitiendo a los profesionales centrarse en lo que realmente importa: el bienestar de sus pacientes.
