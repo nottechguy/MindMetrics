@@ -1,50 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Propuesta de software para psicólogos">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="">
+    <meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="When Great Minds Don’t Think Alike" />
+    <meta property="og:description"        content="How much does culture influence creative thinking?" />
+    <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+    <title>Propuesta de software para psicólogos</title>
+    <style>
+        :root {
+            --scale1: 0.950; /*define scale for small screens*/
+            --scale2: 1.010; /*scale for large screens*/
 
-# Propuesta de Software para Psicólogos
-Mi nombre es Luis Antonio Mendoza Hernández, como ingeniero de software, entiendo la importancia de crear soluciones personalizadas que se adapten a las necesidades específicas de cada profesión. En el campo de la psicología, donde la atención al cliente y la gestión de información son cruciales, un software a medida puede marcar una gran diferencia.
+            --font-size-mobile:calc(var(--scale1) * var(--scale1) * 1em);
+            --font-size-desktop:calc(var(--scale2) * var(--scale2) * 1em);
+        }
+        * {
+            margin:0;
+            padding:0;
+            border:none;
+            outline:none;
+        }
+        html, body {
+            height:100%;
+        }
+        body {
+            -webkit-font-smoothing:antialiased;
+            -webkit-tap-highlight-color:transparent;
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:100%;
+        }
+        .container {
+            margin:0 auto;
+            width:600px;
+            text-align:center;
+            background-color:rgba(255, 255, 255, 0.8);
+            position:relative;
+            z-index:10;
+            padding:20px;
+        }
 
-## Introducción:
-La práctica de la psicología implica no solo la atención directa a los pacientes, sino también la gestión de una gran cantidad de información sensible y la necesidad de mantener un seguimiento detallado del progreso de cada individuo. Un software diseñado específicamente para psicólogos puede optimizar estos procesos, permitiendo a los profesionales centrarse en lo que realmente importa: el bienestar de sus pacientes.
+        .container-section {
+            position:relative;
+            margin-bottom:50px;
+            text-align:justify;
+        }
 
-## Objetivo del Software:
-Desarrollar una plataforma integral que facilite la gestión de citas, el seguimiento de pacientes, la documentación de sesiones y la facturación, todo en un entorno seguro y fácil de usar.
+        .container-section h2 {
+            color:#6091c7;
+            margin:10px 0;
+            text-align:center;
+            font-size: var(--font-size-desktop);
+        }
 
-## Características Clave:
+        .container-section p {
+            font-size: var(--font-size-desktop);
+            line-height:1.4;
+        }
 
-1. Gestión de Citas:
-    - Calendario interactivo para programar y recordar citas.
-    - Notificaciones automáticas para pacientes y psicólogos.
+        .container-section ul > li {
+            font-size: var(--font-size-desktop);
+        }
 
-2. Historial Clínico:
-    - Registro seguro y accesible de la información del paciente.
-    - Posibilidad de añadir notas y observaciones después de cada sesión.
+        .container-section ul {
+            margin-left:16px;
+            text-align:left;
+        }
 
-3. Evaluaciones y Seguimiento:
-    - Herramientas para realizar evaluaciones psicológicas y seguimiento del progreso.
-    - Generación de informes personalizados para cada paciente.
+        .container-section ol, .container-section ul {
+            list-style-position:inside;
+        }
 
-4. Análisis de datos:
-    - Encuestas de opinión de los clientes para mejorar la calidad del servicio.
+        .container-section ol > li {
+            margin-bottom:18px;
+            position:relative;
+            display:list-item;
+        }
 
-5. Facturación y Pagos:
-    - Sistema de facturación integrado que simplifica el proceso de cobro.
-    - Opciones de pago en línea para mayor comodidad.
+        .container-section ul > li {
+            font-weight:initial;
+            margin:8px 0
+        }
 
-6. Seguridad y Cumplimiento:
-    - Almacenamiendo en la nube de las copias de seguridad de tus datos.
-    - Cumplimiento con normativas de protección de datos (como GDPR o HIPAA).
-    - Encriptación de datos sensibles para garantizar la privacidad del paciente.
+        .footer {
+            background:linear-gradient(45deg, #197b9f, rgb(33, 117, 32, .58));
+            position:relative;
+        }
 
-7. Interfaz Amigable:
-    - Diseño intuitivo que permite a los psicólogos y pacientes navegar fácilmente por la plataforma.
-    - Acceso desde múltiples dispositivos (PC, tabletas, móviles).
+        .footer h2 {
+            color:#c8ff00;
+        }
 
-## Beneficios:
-- Ahorro de tiempo en la gestión administrativa.
-- Mejora en la calidad del servicio al paciente.
-- Mayor organización y seguimiento del progreso terapéutico.
-- Reducción del riesgo de errores en la documentación.
+        .footer p {
+            color:#ffffff
+        }
 
-## Conclusión
-Esta plataforma apunta a revolucionar la forma en que los psicólogos gestionan sus prácticas e interactúan con los pacientes. Al adoptar este software, mejorará la eficiencia operativa, la atención al paciente y posicionará su práctica para el crecimiento futuro. Esperamos tener la oportunidad de colaborar y apoyar su misión de brindar servicios psicológicos excepcionales.
+        .form-button {
+            text-decoration:none;
+            padding:8px 12px;
+            font-size: var(--font-size-desktop);
+            border-radius:6px;
+            background-color:#ffffff;
+            color:#555555;
+            transition:background-color .2s ease;
+        }
 
-:collision: :100:
+        .form-button:hover {
+            background-color:#b0feff;
+            color:#000000
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                width:90%;
+                background-color:rgba(255, 255, 255, 0.7);
+            }
+            .container-section h2 {
+                font-size: var(--font-size-mobile);
+            }
+            .container-section p {
+                font-size: var(--font-size-mobile);
+            }
+
+            .container-section ul > li, .container-section ol > li {
+                font-size: var(--font-size-mobile);
+            }
+            .form-button {
+                font-size: var(--font-size-mobile);
+            }
+        }
+
+    @keyframes move {
+        100% {
+            transform: translate3d(0, 0, 1px) rotate(360deg);
+        }
+    }
+
+    .background {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: #f0fcff;
+        overflow: hidden;
+    }
+
+    .background span {
+        width: 4vmin;
+        height: 4vmin;
+        border-radius: 4vmin;
+        backface-visibility: hidden;
+        position: absolute;
+        animation: move;
+        animation-duration: 30;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+
+    .background span:nth-child(0) {
+        color: #b7f5e9;
+        top: 12%;
+        left: 74%;
+        animation-duration: 25s;
+        animation-delay: -92s;
+        transform-origin: -10vw 20vh;
+        box-shadow: -8vmin 0 1.3609442643043979vmin currentColor;
+    }
+    .background span:nth-child(1) {
+        color: #939dec;
+        top: 36%;
+        left: 40%;
+        animation-duration: 56s;
+        animation-delay: -66s;
+        transform-origin: -19vw 9vh;
+        box-shadow: -8vmin 0 1.467865675865835vmin currentColor;
+    }
+    .background span:nth-child(2) {
+        color: #b7f5e9;
+        top: 89%;
+        left: 50%;
+        animation-duration: 107s;
+        animation-delay: -126s;
+        transform-origin: 11vw -24vh;
+        box-shadow: -8vmin 0 1.8323145369848841vmin currentColor;
+    }
+    .background span:nth-child(3) {
+        color: #939dec;
+        top: 66%;
+        left: 40%;
+        animation-duration: 150s;
+        animation-delay: -142s;
+        transform-origin: 2vw 25vh;
+        box-shadow: 8vmin 0 1.8403378344486423vmin currentColor;
+    }
+    .background span:nth-child(4) {
+        color: #b7f5e9;
+        top: 8%;
+        left: 94%;
+        animation-duration: 183s;
+        animation-delay: -61s;
+        transform-origin: 17vw -12vh;
+        box-shadow: -8vmin 0 1.9142732622835932vmin currentColor;
+    }
+    .background span:nth-child(5) {
+        color: #b7f5e9;
+        top: 79%;
+        left: 86%;
+        animation-duration: 18s;
+        animation-delay: -130s;
+        transform-origin: -17vw -2vh;
+        box-shadow: -8vmin 0 1.7205498135349881vmin currentColor;
+    }
+    .background span:nth-child(6) {
+        color: #a8e5ff;
+        top: 35%;
+        left: 58%;
+        animation-duration: 202s;
+        animation-delay: -146s;
+        transform-origin: -15vw 4vh;
+        box-shadow: -8vmin 0 1.3795246790861082vmin currentColor;
+    }
+    .background span:nth-child(7) {
+        color: #939dec;
+        top: 1%;
+        left: 46%;
+        animation-duration: 91s;
+        animation-delay: -83s;
+        transform-origin: 18vw -2vh;
+        box-shadow: -8vmin 0 1.471711137395395vmin currentColor;
+    }
+    .background span:nth-child(8) {
+        color: #a8e5ff;
+        top: 70%;
+        left: 67%;
+        animation-duration: 117s;
+        animation-delay: -135s;
+        transform-origin: -22vw 12vh;
+        box-shadow: 8vmin 0 1.7471112053973143vmin currentColor;
+    }
+    .background span:nth-child(9) {
+        color: #b7f5e9;
+        top: 83%;
+        left: 56%;
+        animation-duration: 181s;
+        animation-delay: -141s;
+        transform-origin: -22vw -14vh;
+        box-shadow: 8vmin 0 1.1051423726090406vmin currentColor;
+    }
+    .background span:nth-child(10) {
+        color: #a8e5ff;
+        top: 3%;
+        left: 77%;
+        animation-duration: 116s;
+        animation-delay: -56s;
+        transform-origin: -4vw 21vh;
+        box-shadow: 8vmin 0 1.5981645691084847vmin currentColor;
+    }
+    .background span:nth-child(11) {
+        color: #a8e5ff;
+        top: 77%;
+        left: 27%;
+        animation-duration: 110s;
+        animation-delay: -106s;
+        transform-origin: 11vw 25vh;
+        box-shadow: 8vmin 0 1.9060090400681369vmin currentColor;
+    }
+    .background span:nth-child(12) {
+        color: #a8e5ff;
+        top: 19%;
+        left: 66%;
+        animation-duration: 48s;
+        animation-delay: -89s;
+        transform-origin: 1vw -6vh;
+        box-shadow: 8vmin 0 1.3839289827954306vmin currentColor;
+    }
+    .background span:nth-child(13) {
+        color: #939dec;
+        top: 4%;
+        left: 19%;
+        animation-duration: 103s;
+        animation-delay: -148s;
+        transform-origin: -11vw 18vh;
+        box-shadow: -8vmin 0 1.0849950963950856vmin currentColor;
+    }
+    .background span:nth-child(14) {
+        color: #a8e5ff;
+        top: 76%;
+        left: 39%;
+        animation-duration: 53s;
+        animation-delay: -27s;
+        transform-origin: 5vw -19vh;
+        box-shadow: -8vmin 0 1.3248307528047816vmin currentColor;
+    }
+    .background span:nth-child(15) {
+        color: #939dec;
+        top: 75%;
+        left: 50%;
+        animation-duration: 18s;
+        animation-delay: -186s;
+        transform-origin: -1vw 16vh;
+        box-shadow: -8vmin 0 1.6943444054608612vmin currentColor;
+    }
+    .background span:nth-child(16) {
+        color: #b7f5e9;
+        top: 83%;
+        left: 83%;
+        animation-duration: 10s;
+        animation-delay: -184s;
+        transform-origin: 3vw -17vh;
+        box-shadow: -8vmin 0 1.467865571149688vmin currentColor;
+    }
+    .background span:nth-child(17) {
+        color: #939dec;
+        top: 67%;
+        left: 17%;
+        animation-duration: 135s;
+        animation-delay: -129s;
+        transform-origin: 2vw 23vh;
+        box-shadow: -8vmin 0 1.1488347435153639vmin currentColor;
+    }
+    .background span:nth-child(18) {
+        color: #a8e5ff;
+        top: 50%;
+        left: 21%;
+        animation-duration: 138s;
+        animation-delay: -7s;
+        transform-origin: 16vw 16vh;
+        box-shadow: -8vmin 0 1.1484569579711301vmin currentColor;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div>
+        <div class="container">
+            <div class="container-section">
+                <h2>Propuesta de Software para Psicólogos</h2>
+                <p>Mi nombre es Luis Antonio Mendoza Hernández, como ingeniero de software entiendo la importancia de crear soluciones personalizadas que se adapten a las necesidades específicas de cada profesión. En el campo de la psicología, donde la atención al cliente y la gestión de información son cruciales, un software a medida puede marcar una gran diferencia.</p>
+            </div>
+            <div class="container-section">
+                <h2>Introducción</h2>
+                <p>La práctica de la psicología implica no solo la atención directa a los pacientes, sino también la gestión de una gran cantidad de información sensible y la necesidad de mantener un seguimiento detallado del progreso de cada individuo. Un software diseñado específicamente para psicólogos puede optimizar estos procesos, permitiendo a los profesionales centrarse en lo que realmente importa: el bienestar de sus pacientes.</p>
+            </div>
+            <div class="container-section">
+                <h2>Objetivo del Software</h2>
+                <p>Desarrollar una plataforma integral que facilite la gestión de citas, el seguimiento de pacientes, la documentación de sesiones y la facturación, todo en un entorno seguro y fácil de usar.</p>
+            </div>
+            <div class="container-section">
+                <h2>Características Clave</h2>
+                <ol>
+                    <li>Gestión de Citas
+                        <ul>
+                            <li>Calendario interactivo para programar y recordar citas.</li>
+                            <li>Notificaciones automáticas para pacientes y psicólogos.</li>
+                        </ul>
+                    </li>
+
+                    <li>Historial Clínico
+                        <ul>
+                            <li>Registro seguro y accesible de la información del paciente.</li>
+                            <li>Posibilidad de añadir notas y observaciones después de cada sesión.</li>
+                        </ul>
+                    </li>
+
+                    <li>Evaluaciones y Seguimiento
+                        <ul>
+                            <li>Herramientas para realizar evaluaciones psicológicas y seguimiento del progreso.</li>
+                            <li>Generación de informes personalizados para cada paciente.</li>
+                        </ul>
+                    </li>
+
+                    <li>Análisis de datos
+                        <ul>
+                            <li>Encuestas de opinión de los clientes para mejorar la calidad del servicio.</li>
+                        </ul>
+                    </li>
+
+                    <li>Facturación y Pagos
+                        <ul>
+                            <li>Sistema de facturación integrado que simplifica el proceso de cobro.</li>
+                            <li>Opciones de pago en línea para mayor comodidad.</li>
+                        </ul>
+                    </li>
+
+                    <li>Seguridad y Cumplimiento
+                        <ul>
+                            <li>Almacenamiendo en la nube de las copias de seguridad de tus datos.</li>
+                            <li>Cumplimiento con normativas de protección de datos como la LFPDPPP (<a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LGPDPPSO.pdf" target="_blank">LEY FEDERAL DE PROTECCIÓN DE DATOS PERSONALES EN POSESIÓN DE LOS
+                                PARTICULARES</a>).</li>
+                            <li>Encriptación de datos sensibles para garantizar la privacidad del paciente.</li>
+                        </ul>
+                    </li>
+
+                    <li>Interfaz Amigable
+                        <ul>
+                            <li>Diseño intuitivo que permite a los psicólogos y pacientes navegar fácilmente por la plataforma.</li>
+                            <li>Acceso desde múltiples dispositivos (PC, tabletas, móviles).</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            <div class="container-section">
+                <h2>Beneficios</h2>
+                <ul>
+                    <li>Ahorro de tiempo en la gestión administrativa.</li>
+                    <li>Mejora en la calidad del servicio al paciente.</li>
+                    <li>Mayor organización y seguimiento del progreso terapéutico.</li>
+                    <li>Reducción del riesgo de errores en la documentación.</li>
+                </ul>
+            </div>
+            <div class="container-section">
+                <h2>Conclusión</h2>
+                <p>Esta plataforma apunta a revolucionar la forma en que los psicólogos gestionan sus prácticas e interactúan con los pacientes. Al adoptar este software, mejorará la eficiencia operativa, la atención al paciente y posicionará su práctica para el crecimiento futuro. Esperamos tener la oportunidad de colaborar y apoyar su misión de brindar servicios psicológicos excepcionales.</p>
+            </div>
+        </div>
+        <div class="container footer">
+            <div class="container-section">
+                <h2>¿Quieres colaborar en el desarollo de este proyecto?</h2>
+
+                <div>
+                    <p>El siguiente formulario tiene como objetivo recolectar información valiosa para el desarrollo de una plataforma diseñada específicamente para psicólogos. Agradecemos tu participación, ya seas un profesional en ejercicio o un estudiante de psicología. Tus comentarios son fundamentales para crear una herramienta que realmente satisfaga las necesidades del sector.</p>
+                    <div style="text-align:center;margin:24px 0">
+                        <a class="form-button" href="https://docs.google.com/forms/d/e/1FAIpQLSctLHrbqTJM_zXqpdB8NGCt86q3guY3sGz_whR3LdAayz7auw/viewform?usp=sf_link" target="_blank">Responder formulario</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
